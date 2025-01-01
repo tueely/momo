@@ -1,0 +1,40 @@
+ // =========================================================
+    // UTILS / STATUS
+    // =========================================================
+    function setStatus(msg) {
+      document.getElementById('statusBar').innerText = "Status: " + msg;
+    }
+
+    function getMousePos(e) {
+      const rect = canvas.getBoundingClientRect();
+      return { x: e.clientX - rect.left, y: e.clientY - rect.top };
+    }
+
+    function updateStats(forceUpdate = false) {
+      // We'll update the time and expansions/sec even while solving,
+      // but let's throttle to ~30fps to avoid spamming DOM changes
+      const now = performance.now();
+      if (!forceUpdate && (now - lastTimeUpdate < 33)) {
+        return;  // ~30 times/sec max
+      }
+      lastTimeUpdate = now;
+
+      // We compute expansions/sec = stepCount / (timeElapsed / 1000)
+      let timeSoFar = (endTime > startTime) ? (endTime - startTime) : (now - startTime);
+      if (timeSoFar < 1) timeSoFar = 1; // avoid division by zero
+      expansionsPerSec = (stepCount * 1000 / timeSoFar).toFixed(2);
+
+      // if solver not started => timeSoFar=0
+      if (!solving && pathLength === 0) { timeSoFar = 0; expansionsPerSec = 0; }
+
+      document.getElementById('statAlgo').innerText = "Algorithm: " + chosenAlgo.toUpperCase();
+      document.getElementById('statStep').innerText = "Steps: " + stepCount;
+      document.getElementById('statEPS').innerText = "Steps/sec: " + expansionsPerSec;
+      document.getElementById('statVisited').innerText = "Visited: " + visitedCount;
+      document.getElementById('statFrontier').innerText = "Frontier: " + frontierSize;
+      document.getElementById('statMaxFrontier').innerText = "Max Frontier: " + maxFrontier;
+      document.getElementById('statPathLength').innerText = "Path Length: " + pathLength;
+      document.getElementById('statTime').innerText = "Time Elapsed (ms): " + timeSoFar.toFixed(2);
+
+      drawGraph();
+    }
