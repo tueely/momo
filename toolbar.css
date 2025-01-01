@@ -1,0 +1,68 @@
+  /* ====== Toolbar ====== */
+    #toolbar {
+      background: rgba(40, 60, 90, 0.5);
+      backdrop-filter: blur(8px);
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      min-width: 280px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    #toolbar h2 {
+      margin: 0;
+      font-size: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 6px;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    }
+
+    .group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    label {
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    input[type="radio"],
+    input[type="checkbox"] {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+    select {
+      padding: 4px;
+      border-radius: 4px;
+      border: none;
+      background: #555;
+      color: #eee;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .button {
+      background: linear-gradient(145deg, #394a68, #2b3650);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      color: #EEE;
+      font-size: 14px;
+      padding: 8px 14px;
+      cursor: pointer;
+      text-align: center;
+      transition: background 0.3s ease;
+    }
+    .button:hover {
+      background: linear-gradient(145deg, #4b5e88, #354269);
+    }
+
+    input[type="range"] {
+      width: 100%;
+      cursor: pointer;
+    }
