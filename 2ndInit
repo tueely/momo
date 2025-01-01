@@ -1,0 +1,10 @@
+
+    // =========================================================
+    // INITIALIZE
+    // =========================================================
+    ctx.fillStyle = '#fdfdfd';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    mazeImageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+
+    updateStats(true);
+    setStatus("Idle and ready");
