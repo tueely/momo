@@ -1,0 +1,32 @@
+ /* ====== Stats Panel + Graph ====== */
+    #statsPanel {
+      background: rgba(40, 60, 90, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.3);
+      padding: 24px;
+      min-width: 360px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    #statsPanel h2 {
+      margin: 0;
+      font-size: 20px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 6px;
+      text-shadow: 0 1px 1px rgba(0,0,0,0.5);
+    }
+
+    .statLine {
+      font-size: 15px;
+    }
+
+    #graphCanvas {
+      width: 320px;
+      height: 200px;
+      border: 1px solid #666;
+      background: #f1f1f1;
+      display: block;
+    }
